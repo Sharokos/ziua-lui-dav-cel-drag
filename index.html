@@ -16,7 +16,19 @@
             background-size: cover;
             font-family: Arial, sans-serif;
         }
-
+		.top-button {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #e37b46;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
         .centered-div {
             width: 35vw;
             height: 50vh;
@@ -61,6 +73,7 @@
     </style>
 </head>
 <body>
+	<button class="top-button" id="playAudio">Să cântăm!</button>
     <div class="centered-div" id="openPopup"></div>
 
     <div class="overlay" id="overlay"></div>
@@ -69,13 +82,15 @@
         <span class="close" id="closePopup">&times;</span>
         <p>Omule drag, la mulți ani! Să fii extra sănătos și extra fericit! Mi-aș fi dorit tare să fiu cu tine și să celebrăm împreună ziua ta... iată aceste animăluțe cum au venit să îți aducă ofranda. Primește acest voucher în valoare de 100 de euro de la Ș și Ana. Te pupam cu drag și te iubim!</p>
     </div>
-
+	<audio id="audio" src="melodie.mp3"></audio>
     <script>
         const openPopup = document.getElementById('openPopup');
         const closePopup = document.getElementById('closePopup');
         const popup = document.getElementById('popup');
         const overlay = document.getElementById('overlay');
-
+		const playAudio = document.getElementById('playAudio');
+        const audio = document.getElementById('audio');
+		
         openPopup.addEventListener('click', () => {
             popup.style.display = 'block';
             overlay.style.display = 'block';
@@ -89,6 +104,9 @@
         overlay.addEventListener('click', () => {
             popup.style.display = 'none';
             overlay.style.display = 'none';
+        });
+		playAudio.addEventListener('click', () => {
+            audio.play();
         });
     </script>
 </body>
